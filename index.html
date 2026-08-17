@@ -6,9 +6,10 @@
   <title>Devian Biotech | Coming Soon</title>
   <meta
     name="description"
-    content="Devian Biotech — Advancing Science. Improving Lives. For inquiries: Info@devianbiotech.com"
+    content="Devian Biotech — Science for Life. Innovation for Tomorrow. For inquiries: Info@devianbiotech.com"
   />
 
+  <link rel="icon" href="logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -18,17 +19,22 @@
 
   <style>
     :root {
-      --ink: #0f2f36;
-      --ink-soft: #4f6b72;
-      --teal: #1b8f85;
-      --teal-deep: #14665f;
-      --teal-bright: #2fb5a8;
-      --blue: #3a7aa8;
-      --bg: #eef8f7;
-      --bg-2: #f7fcfc;
+      --ink: #0a1f45;
+      --ink-soft: #4a6288;
+      --blue: #0c48a8;
+      --blue-deep: #08357d;
+      --blue-mid: #275fb6;
+      --cyan: #3cb3d5;
+      --cyan-bright: #30e4e4;
+      --teal: #48c0c0;
+      --lime: #a8e49c;
+      --lime-bright: #c0f09c;
+      --gold: #ecd66d;
+      --bg: #eef5fb;
+      --bg-2: #f5fafd;
       --white: #ffffff;
-      --line: rgba(20, 102, 95, 0.12);
-      --shadow: 0 22px 60px rgba(15, 70, 75, 0.1);
+      --line: rgba(12, 72, 168, 0.14);
+      --shadow: 0 22px 60px rgba(8, 40, 100, 0.12);
     }
 
     * {
@@ -46,9 +52,10 @@
       font-family: Manrope, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(ellipse 80% 60% at 100% 0%, rgba(47, 181, 168, 0.18), transparent 55%),
-        radial-gradient(ellipse 70% 50% at 0% 100%, rgba(58, 122, 168, 0.14), transparent 50%),
-        linear-gradient(160deg, var(--bg-2) 0%, var(--bg) 45%, #e8f4f8 100%);
+        radial-gradient(ellipse 80% 60% at 100% 0%, rgba(60, 179, 213, 0.2), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 0% 100%, rgba(12, 72, 168, 0.12), transparent 50%),
+        radial-gradient(ellipse 50% 40% at 70% 80%, rgba(168, 228, 156, 0.14), transparent 55%),
+        linear-gradient(160deg, var(--bg-2) 0%, var(--bg) 45%, #e6f0f8 100%);
       overflow-x: hidden;
     }
 
@@ -77,8 +84,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(27, 143, 133, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(27, 143, 133, 0.045) 1px, transparent 1px);
+        linear-gradient(rgba(12, 72, 168, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(12, 72, 168, 0.045) 1px, transparent 1px);
       background-size: 48px 48px;
       mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
     }
@@ -104,8 +111,18 @@
       height: min(360px, 55vw);
       bottom: -10%;
       left: -6%;
-      background: #b7d9f5;
+      background: #9ec4f0;
       animation: drift 14s ease-in-out infinite reverse;
+    }
+
+    .orb-c {
+      width: min(280px, 40vw);
+      height: min(280px, 40vw);
+      top: 45%;
+      right: 20%;
+      background: #c8f0b0;
+      opacity: 0.35;
+      animation: drift 16s ease-in-out infinite;
     }
 
     .shell {
@@ -115,31 +132,33 @@
 
     /* Header */
     .site-header {
-      padding: 1.35rem 0 0.5rem;
+      padding: 1.15rem 0 0.5rem;
     }
 
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.95rem;
       text-decoration: none;
     }
 
     .logo-mark {
-      width: 3rem;
-      height: 3rem;
+      width: 3.6rem;
+      height: 3.6rem;
       border-radius: 0.95rem;
-      display: grid;
-      place-items: center;
-      color: white;
-      background: linear-gradient(145deg, var(--teal-deep), var(--teal-bright));
-      box-shadow: 0 12px 28px rgba(27, 143, 133, 0.28);
+      overflow: hidden;
       flex-shrink: 0;
+      background: #000;
+      box-shadow: 0 12px 28px rgba(12, 72, 168, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .logo-mark svg {
-      width: 1.55rem;
-      height: 1.55rem;
+    .logo-mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     .logo-name {
@@ -148,6 +167,7 @@
       font-weight: 800;
       letter-spacing: 0.16em;
       line-height: 1;
+      color: var(--blue-deep);
     }
 
     .logo-sub {
@@ -156,7 +176,7 @@
       font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.28em;
-      color: var(--ink-soft);
+      color: var(--blue-mid);
     }
 
     /* Hero */
@@ -185,7 +205,7 @@
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.72);
       backdrop-filter: blur(10px);
-      color: var(--teal-deep);
+      color: var(--blue-deep);
       font-size: 0.68rem;
       font-weight: 800;
       letter-spacing: 0.16em;
@@ -197,8 +217,8 @@
       width: 0.45rem;
       height: 0.45rem;
       border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 0 0.28rem rgba(27, 143, 133, 0.15);
+      background: var(--cyan);
+      box-shadow: 0 0 0 0.28rem rgba(60, 179, 213, 0.18);
       animation: pulse 2s ease-in-out infinite;
     }
 
@@ -215,7 +235,7 @@
 
     .headline em {
       font-style: normal;
-      background: linear-gradient(110deg, var(--teal-deep), var(--teal-bright) 45%, var(--blue));
+      background: linear-gradient(110deg, var(--blue-deep), var(--cyan) 50%, var(--lime));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -255,14 +275,14 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #123f47, #1a5a63);
+      background: linear-gradient(135deg, var(--blue-deep), var(--blue-mid));
       color: white;
-      box-shadow: 0 14px 32px rgba(18, 63, 71, 0.22);
+      box-shadow: 0 14px 32px rgba(12, 72, 168, 0.28);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 38px rgba(18, 63, 71, 0.28);
+      box-shadow: 0 18px 38px rgba(12, 72, 168, 0.34);
     }
 
     .btn-primary svg {
@@ -273,7 +293,7 @@
     .btn-ghost {
       background: rgba(255, 255, 255, 0.7);
       border: 1px solid var(--line);
-      color: var(--teal-deep);
+      color: var(--blue-deep);
       backdrop-filter: blur(8px);
     }
 
@@ -287,7 +307,7 @@
       max-width: 28rem;
       padding: 1.05rem 1.15rem;
       border-radius: 1.1rem;
-      border: 1px solid rgba(27, 143, 133, 0.16);
+      border: 1px solid rgba(12, 72, 168, 0.16);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.62));
       box-shadow: var(--shadow);
       animation: rise 0.95s ease 0.2s both;
@@ -307,7 +327,7 @@
       align-items: center;
       gap: 0.55rem;
       text-decoration: none;
-      color: var(--teal-deep);
+      color: var(--blue-deep);
       font-family: Outfit, Manrope, sans-serif;
       font-size: clamp(1.05rem, 3.4vw, 1.35rem);
       font-weight: 800;
@@ -324,116 +344,54 @@
       width: 1.15rem;
       height: 1.15rem;
       flex-shrink: 0;
-      color: var(--teal);
+      color: var(--cyan);
     }
 
     .tagline {
       margin-top: 0.85rem;
       font-size: 0.9rem;
-      color: #6d858c;
+      color: #5f7594;
       font-weight: 600;
     }
 
     /* Visual panel */
     .visual {
       position: relative;
-      min-height: 280px;
+      min-height: 340px;
       border-radius: 1.75rem;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       background:
-        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.55), transparent 45%),
-        linear-gradient(155deg, rgba(27, 143, 133, 0.16), rgba(58, 122, 168, 0.18) 55%, rgba(20, 102, 95, 0.22));
+        radial-gradient(circle at 30% 20%, rgba(60, 179, 213, 0.22), transparent 42%),
+        radial-gradient(circle at 75% 75%, rgba(168, 228, 156, 0.16), transparent 40%),
+        linear-gradient(165deg, #020810 0%, #061428 45%, #0a1f45 100%);
       box-shadow: var(--shadow);
       animation: rise 1s ease 0.12s both;
     }
 
-    .visual-inner {
+    .visual-glow {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 45% at 50% 42%, rgba(48, 228, 228, 0.18), transparent 70%);
+      pointer-events: none;
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+
+    .visual-logo {
       position: absolute;
       inset: 0;
       display: grid;
       place-items: center;
+      padding: 1.5rem 1.5rem 4.5rem;
     }
 
-    .helix {
-      width: min(220px, 58%);
-      height: min(340px, 78%);
-      position: relative;
-      opacity: 0.9;
+    .visual-logo img {
+      width: min(78%, 280px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 18px 40px rgba(48, 228, 228, 0.22));
       animation: floatY 7s ease-in-out infinite;
-    }
-
-    .helix-strand {
-      position: absolute;
-      top: 0;
-      width: 5px;
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(to bottom, var(--teal-bright), var(--blue), var(--teal-deep));
-    }
-
-    .helix-strand.left {
-      left: 28%;
-      transform: rotate(10deg);
-    }
-
-    .helix-strand.right {
-      right: 28%;
-      transform: rotate(-10deg);
-    }
-
-    .rung {
-      position: absolute;
-      left: 28%;
-      width: 44%;
-      height: 3px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
-      box-shadow: 0 0 12px rgba(47, 181, 168, 0.35);
-    }
-
-    .rung:nth-child(3) { top: 12%; transform: rotate(8deg); }
-    .rung:nth-child(4) { top: 24%; transform: rotate(-8deg); }
-    .rung:nth-child(5) { top: 36%; transform: rotate(8deg); }
-    .rung:nth-child(6) { top: 48%; transform: rotate(-8deg); }
-    .rung:nth-child(7) { top: 60%; transform: rotate(8deg); }
-    .rung:nth-child(8) { top: 72%; transform: rotate(-8deg); }
-    .rung:nth-child(9) { top: 84%; transform: rotate(8deg); }
-
-    .molecule {
-      position: absolute;
-      width: 130px;
-      height: 130px;
-      opacity: 0.55;
-    }
-
-    .molecule.top-left {
-      top: 10%;
-      left: 8%;
-      animation: floatY 9s ease-in-out infinite;
-    }
-
-    .molecule.bottom-right {
-      right: 8%;
-      bottom: 10%;
-      transform: scale(0.85);
-      animation: floatY 11s ease-in-out infinite reverse;
-    }
-
-    .node {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: #1f9b90;
-      box-shadow: 0 0 0 5px rgba(31, 155, 144, 0.12), 0 0 18px rgba(31, 155, 144, 0.28);
-    }
-
-    .bond {
-      position: absolute;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(31, 155, 144, 0.05), rgba(31, 155, 144, 0.45), rgba(31, 155, 144, 0.05));
-      transform-origin: left center;
     }
 
     .visual-caption {
@@ -443,9 +401,9 @@
       bottom: 1rem;
       padding: 0.9rem 1rem;
       border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.95);
     }
 
     .visual-caption strong {
@@ -454,6 +412,7 @@
       font-size: 0.95rem;
       font-weight: 800;
       margin-bottom: 0.2rem;
+      color: var(--blue-deep);
     }
 
     .visual-caption span {
@@ -481,14 +440,14 @@
 
     .copyright {
       font-size: 0.78rem;
-      color: #7a9096;
+      color: #7a8fa8;
       font-weight: 600;
     }
 
     .footer-mail {
       font-size: 0.86rem;
       font-weight: 700;
-      color: var(--teal-deep);
+      color: var(--blue-deep);
       text-decoration: none;
     }
 
@@ -509,6 +468,11 @@
     @keyframes floatY {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
     }
 
     @keyframes rise {
@@ -532,7 +496,7 @@
       }
 
       .visual {
-        min-height: 240px;
+        min-height: 300px;
         order: -1;
       }
 
@@ -558,9 +522,18 @@
         font-size: 1rem;
       }
 
+      .logo-mark {
+        width: 3.15rem;
+        height: 3.15rem;
+      }
+
       .visual {
-        min-height: 210px;
+        min-height: 260px;
         border-radius: 1.35rem;
+      }
+
+      .visual-logo {
+        padding: 1.1rem 1.1rem 4.25rem;
       }
 
       .visual-caption {
@@ -585,6 +558,7 @@
     <div class="grid-fade"></div>
     <div class="orb orb-a"></div>
     <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
   </div>
 
   <div class="page">
@@ -592,13 +566,7 @@
       <div class="shell">
         <a class="logo" href="#" aria-label="Devian Biotech">
           <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-              <path d="M12 3v18" />
-              <path d="M6 6c4 2 8 2 12 0" />
-              <path d="M6 18c4-2 8-2 12 0" />
-              <path d="M7 9c3 1.5 7 1.5 10 0" />
-              <path d="M7 15c3-1.5 7-1.5 10 0" />
-            </svg>
+            <img src="logo.png" alt="" width="1522" height="1510" />
           </span>
           <span>
             <span class="logo-name">DEVIAN</span>
@@ -657,49 +625,23 @@
               </svg>
               Info@devianbiotech.com
             </a>
-            <p class="tagline">Building tomorrow’s healthcare solutions.</p>
+            <p class="tagline">Science for Life. Innovation for Tomorrow.</p>
           </div>
         </div>
 
-        <aside class="visual" aria-hidden="true">
-          <div class="visual-inner">
-            <div class="molecule top-left">
-              <span class="node" style="left:12px;top:58px;"></span>
-              <span class="node" style="left:58px;top:18px;"></span>
-              <span class="node" style="left:98px;top:62px;"></span>
-              <span class="node" style="left:58px;top:100px;"></span>
-              <span class="bond" style="width:58px;left:20px;top:58px;transform:rotate(-38deg);"></span>
-              <span class="bond" style="width:52px;left:66px;top:28px;transform:rotate(42deg);"></span>
-              <span class="bond" style="width:54px;left:102px;top:70px;transform:rotate(140deg);"></span>
-              <span class="bond" style="width:54px;left:64px;top:104px;transform:rotate(-142deg);"></span>
-            </div>
-
-            <div class="helix">
-              <span class="helix-strand left"></span>
-              <span class="helix-strand right"></span>
-              <span class="rung"></span>
-              <span class="rung"></span>
-              <span class="rung"></span>
-              <span class="rung"></span>
-              <span class="rung"></span>
-              <span class="rung"></span>
-              <span class="rung"></span>
-            </div>
-
-            <div class="molecule bottom-right">
-              <span class="node" style="left:12px;top:58px;"></span>
-              <span class="node" style="left:58px;top:18px;"></span>
-              <span class="node" style="left:98px;top:62px;"></span>
-              <span class="node" style="left:58px;top:100px;"></span>
-              <span class="bond" style="width:58px;left:20px;top:58px;transform:rotate(-38deg);"></span>
-              <span class="bond" style="width:52px;left:66px;top:28px;transform:rotate(42deg);"></span>
-              <span class="bond" style="width:54px;left:102px;top:70px;transform:rotate(140deg);"></span>
-              <span class="bond" style="width:54px;left:64px;top:104px;transform:rotate(-142deg);"></span>
-            </div>
+        <aside class="visual" aria-label="Devian Biotech logo">
+          <div class="visual-glow" aria-hidden="true"></div>
+          <div class="visual-logo">
+            <img
+              src="logo.png"
+              alt="Devian Biotech — Science for Life. Innovation for Tomorrow."
+              width="1522"
+              height="1510"
+            />
           </div>
 
           <div class="visual-caption">
-            <strong>Science. Research. Care.</strong>
+            <strong>Science for Life. Innovation for Tomorrow.</strong>
             <span>A new digital home for Devian Biotech is on the way.</span>
           </div>
         </aside>
