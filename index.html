@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devian Biotech | Coming Soon</title>
+  <meta
+    name="description"
+    content="Devian Biotech — Advancing Science. Improving Lives. For inquiries: Info@devianbiotech.com"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --ink: #0f2f36;
+      --ink-soft: #4f6b72;
+      --teal: #1b8f85;
+      --teal-deep: #14665f;
+      --teal-bright: #2fb5a8;
+      --blue: #3a7aa8;
+      --bg: #eef8f7;
+      --bg-2: #f7fcfc;
+      --white: #ffffff;
+      --line: rgba(20, 102, 95, 0.12);
+      --shadow: 0 22px 60px rgba(15, 70, 75, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Manrope, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 60% at 100% 0%, rgba(47, 181, 168, 0.18), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 0% 100%, rgba(58, 122, 168, 0.14), transparent 50%),
+        linear-gradient(160deg, var(--bg-2) 0%, var(--bg) 45%, #e8f4f8 100%);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      isolation: isolate;
+    }
+
+    /* Atmosphere */
+    .atmosphere {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .grid-fade {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(27, 143, 133, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27, 143, 133, 0.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.55;
+    }
+
+    .orb-a {
+      width: min(420px, 60vw);
+      height: min(420px, 60vw);
+      top: -8%;
+      right: -4%;
+      background: #9fe8df;
+      animation: drift 12s ease-in-out infinite;
+    }
+
+    .orb-b {
+      width: min(360px, 55vw);
+      height: min(360px, 55vw);
+      bottom: -10%;
+      left: -6%;
+      background: #b7d9f5;
+      animation: drift 14s ease-in-out infinite reverse;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
+
+    /* Header */
+    .site-header {
+      padding: 1.35rem 0 0.5rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.95rem;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(145deg, var(--teal-deep), var(--teal-bright));
+      box-shadow: 0 12px 28px rgba(27, 143, 133, 0.28);
+      flex-shrink: 0;
+    }
+
+    .logo-mark svg {
+      width: 1.55rem;
+      height: 1.55rem;
+    }
+
+    .logo-name {
+      font-family: Outfit, Manrope, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      line-height: 1;
+    }
+
+    .logo-sub {
+      display: block;
+      margin-top: 0.28rem;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      color: var(--ink-soft);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 2rem 0 2.5rem;
+    }
+
+    @media (min-width: 960px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.85fr);
+        gap: 3rem;
+        padding: 1.5rem 0 2rem;
+        min-height: calc(100vh - 10rem);
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(10px);
+      color: var(--teal-deep);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      animation: rise 0.7s ease both;
+    }
+
+    .badge-dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 0.28rem rgba(27, 143, 133, 0.15);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .headline {
+      margin-top: 1.25rem;
+      font-family: Outfit, Manrope, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.35rem, 6.2vw, 4.6rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 14ch;
+      animation: rise 0.8s ease 0.05s both;
+    }
+
+    .headline em {
+      font-style: normal;
+      background: linear-gradient(110deg, var(--teal-deep), var(--teal-bright) 45%, var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      margin-top: 1.15rem;
+      max-width: 34rem;
+      font-size: clamp(1rem, 2.2vw, 1.125rem);
+      line-height: 1.75;
+      color: var(--ink-soft);
+      font-weight: 500;
+      animation: rise 0.85s ease 0.1s both;
+    }
+
+    .actions {
+      margin-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.85rem 1rem;
+      animation: rise 0.9s ease 0.15s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 3.05rem;
+      padding: 0.85rem 1.35rem;
+      border-radius: 0.9rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #123f47, #1a5a63);
+      color: white;
+      box-shadow: 0 14px 32px rgba(18, 63, 71, 0.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(18, 63, 71, 0.28);
+    }
+
+    .btn-primary svg {
+      width: 1.05rem;
+      height: 1.05rem;
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--line);
+      color: var(--teal-deep);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-2px);
+      background: white;
+    }
+
+    .inquiry {
+      margin-top: 1.5rem;
+      max-width: 28rem;
+      padding: 1.05rem 1.15rem;
+      border-radius: 1.1rem;
+      border: 1px solid rgba(27, 143, 133, 0.16);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.62));
+      box-shadow: var(--shadow);
+      animation: rise 0.95s ease 0.2s both;
+    }
+
+    .inquiry-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 0.45rem;
+    }
+
+    .inquiry-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      text-decoration: none;
+      color: var(--teal-deep);
+      font-family: Outfit, Manrope, sans-serif;
+      font-size: clamp(1.05rem, 3.4vw, 1.35rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      word-break: break-word;
+      transition: color 0.2s ease;
+    }
+
+    .inquiry-email:hover {
+      color: var(--ink);
+    }
+
+    .inquiry-email svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      flex-shrink: 0;
+      color: var(--teal);
+    }
+
+    .tagline {
+      margin-top: 0.85rem;
+      font-size: 0.9rem;
+      color: #6d858c;
+      font-weight: 600;
+    }
+
+    /* Visual panel */
+    .visual {
+      position: relative;
+      min-height: 280px;
+      border-radius: 1.75rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.55), transparent 45%),
+        linear-gradient(155deg, rgba(27, 143, 133, 0.16), rgba(58, 122, 168, 0.18) 55%, rgba(20, 102, 95, 0.22));
+      box-shadow: var(--shadow);
+      animation: rise 1s ease 0.12s both;
+    }
+
+    .visual-inner {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .helix {
+      width: min(220px, 58%);
+      height: min(340px, 78%);
+      position: relative;
+      opacity: 0.9;
+      animation: floatY 7s ease-in-out infinite;
+    }
+
+    .helix-strand {
+      position: absolute;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, var(--teal-bright), var(--blue), var(--teal-deep));
+    }
+
+    .helix-strand.left {
+      left: 28%;
+      transform: rotate(10deg);
+    }
+
+    .helix-strand.right {
+      right: 28%;
+      transform: rotate(-10deg);
+    }
+
+    .rung {
+      position: absolute;
+      left: 28%;
+      width: 44%;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+      box-shadow: 0 0 12px rgba(47, 181, 168, 0.35);
+    }
+
+    .rung:nth-child(3) { top: 12%; transform: rotate(8deg); }
+    .rung:nth-child(4) { top: 24%; transform: rotate(-8deg); }
+    .rung:nth-child(5) { top: 36%; transform: rotate(8deg); }
+    .rung:nth-child(6) { top: 48%; transform: rotate(-8deg); }
+    .rung:nth-child(7) { top: 60%; transform: rotate(8deg); }
+    .rung:nth-child(8) { top: 72%; transform: rotate(-8deg); }
+    .rung:nth-child(9) { top: 84%; transform: rotate(8deg); }
+
+    .molecule {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      opacity: 0.55;
+    }
+
+    .molecule.top-left {
+      top: 10%;
+      left: 8%;
+      animation: floatY 9s ease-in-out infinite;
+    }
+
+    .molecule.bottom-right {
+      right: 8%;
+      bottom: 10%;
+      transform: scale(0.85);
+      animation: floatY 11s ease-in-out infinite reverse;
+    }
+
+    .node {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #1f9b90;
+      box-shadow: 0 0 0 5px rgba(31, 155, 144, 0.12), 0 0 18px rgba(31, 155, 144, 0.28);
+    }
+
+    .bond {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(31, 155, 144, 0.05), rgba(31, 155, 144, 0.45), rgba(31, 155, 144, 0.05));
+      transform-origin: left center;
+    }
+
+    .visual-caption {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .visual-caption strong {
+      display: block;
+      font-family: Outfit, Manrope, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+
+    .visual-caption span {
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 1.15rem 0 1.5rem;
+      border-top: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(8px);
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem 1.25rem;
+    }
+
+    .copyright {
+      font-size: 0.78rem;
+      color: #7a9096;
+      font-weight: 600;
+    }
+
+    .footer-mail {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--teal-deep);
+      text-decoration: none;
+    }
+
+    .footer-mail:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.55; }
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-18px, 14px); }
+    }
+
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 959px) {
+      .shell {
+        width: min(100% - 1.75rem, 1120px);
+      }
+
+      .hero {
+        padding-top: 1.25rem;
+      }
+
+      .visual {
+        min-height: 240px;
+        order: -1;
+      }
+
+      .headline {
+        max-width: none;
+      }
+
+      .actions {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .inquiry {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-name {
+        font-size: 1rem;
+      }
+
+      .visual {
+        min-height: 210px;
+        border-radius: 1.35rem;
+      }
+
+      .visual-caption {
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="grid-fade"></div>
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+  </div>
+
+  <div class="page">
+    <header class="site-header">
+      <div class="shell">
+        <a class="logo" href="#" aria-label="Devian Biotech">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M12 3v18" />
+              <path d="M6 6c4 2 8 2 12 0" />
+              <path d="M6 18c4-2 8-2 12 0" />
+              <path d="M7 9c3 1.5 7 1.5 10 0" />
+              <path d="M7 15c3-1.5 7-1.5 10 0" />
+            </svg>
+          </span>
+          <span>
+            <span class="logo-name">DEVIAN</span>
+            <span class="logo-sub">BIOTECH</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero shell">
+        <div class="copy">
+          <div class="badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Website Coming Soon
+          </div>
+
+          <h1 class="headline">
+            Advancing <em>Science.</em><br />
+            Improving Lives.
+          </h1>
+
+          <p class="lead">
+            Devian Biotech is shaping the future of healthcare through science,
+            research, and innovation. Our new digital presence is currently under development.
+          </p>
+
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="mailto:Info@devianbiotech.com?subject=Inquiry%20-%20Devian%20Biotech"
+            >
+              Inquire Now
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+            </a>
+            <a
+              class="btn btn-ghost"
+              href="mailto:Info@devianbiotech.com?subject=Inquiry%20-%20Devian%20Biotech"
+            >
+              Email for Inquiry
+            </a>
+          </div>
+
+          <div class="inquiry">
+            <div class="inquiry-label">For all inquiries, contact</div>
+            <a
+              class="inquiry-email"
+              href="mailto:Info@devianbiotech.com?subject=Inquiry%20-%20Devian%20Biotech"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              Info@devianbiotech.com
+            </a>
+            <p class="tagline">Building tomorrow’s healthcare solutions.</p>
+          </div>
+        </div>
+
+        <aside class="visual" aria-hidden="true">
+          <div class="visual-inner">
+            <div class="molecule top-left">
+              <span class="node" style="left:12px;top:58px;"></span>
+              <span class="node" style="left:58px;top:18px;"></span>
+              <span class="node" style="left:98px;top:62px;"></span>
+              <span class="node" style="left:58px;top:100px;"></span>
+              <span class="bond" style="width:58px;left:20px;top:58px;transform:rotate(-38deg);"></span>
+              <span class="bond" style="width:52px;left:66px;top:28px;transform:rotate(42deg);"></span>
+              <span class="bond" style="width:54px;left:102px;top:70px;transform:rotate(140deg);"></span>
+              <span class="bond" style="width:54px;left:64px;top:104px;transform:rotate(-142deg);"></span>
+            </div>
+
+            <div class="helix">
+              <span class="helix-strand left"></span>
+              <span class="helix-strand right"></span>
+              <span class="rung"></span>
+              <span class="rung"></span>
+              <span class="rung"></span>
+              <span class="rung"></span>
+              <span class="rung"></span>
+              <span class="rung"></span>
+              <span class="rung"></span>
+            </div>
+
+            <div class="molecule bottom-right">
+              <span class="node" style="left:12px;top:58px;"></span>
+              <span class="node" style="left:58px;top:18px;"></span>
+              <span class="node" style="left:98px;top:62px;"></span>
+              <span class="node" style="left:58px;top:100px;"></span>
+              <span class="bond" style="width:58px;left:20px;top:58px;transform:rotate(-38deg);"></span>
+              <span class="bond" style="width:52px;left:66px;top:28px;transform:rotate(42deg);"></span>
+              <span class="bond" style="width:54px;left:102px;top:70px;transform:rotate(140deg);"></span>
+              <span class="bond" style="width:54px;left:64px;top:104px;transform:rotate(-142deg);"></span>
+            </div>
+          </div>
+
+          <div class="visual-caption">
+            <strong>Science. Research. Care.</strong>
+            <span>A new digital home for Devian Biotech is on the way.</span>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-row">
+        <p class="copyright">© 2026 Devian Biotech. All rights reserved.</p>
+        <a
+          class="footer-mail"
+          href="mailto:Info@devianbiotech.com?subject=Inquiry%20-%20Devian%20Biotech"
+        >
+          Info@devianbiotech.com
+        </a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
